@@ -2,7 +2,7 @@ package project.penadidik.cleanarchitecture.data
 
 object Constants {
 
-    const val DATABASE_NAME = "AstroTest.db"
+    const val DATABASE_NAME = "CleanArchitecture.db"
 
     object HttpClient {
         const val CONNECT_TIMEOUT = 10L
