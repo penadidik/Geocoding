@@ -6,10 +6,11 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.BDDMockito
 import org.mockito.Mockito
+import org.mockito.Mockito.`when`
 import project.penadidik.geocoding.domain.GeoCodingTestModel
 import project.penadidik.geocoding.domain.repository.GeoCodingRepository
 
-class SearchGeoCodingUseCaseTest {
+class SearchDirectUseCaseTest {
 
     private lateinit var searchDirectUseCase: SearchDirectUseCase
     private val geoCodingRepository = Mockito.mock(GeoCodingRepository::class.java)
@@ -48,6 +49,17 @@ class SearchGeoCodingUseCaseTest {
             Mockito.anyInt()
         )).test()
         test.assertComplete()
+    }
+
+    @Test
+    fun getGeoCodingReturnData() {
+        val params = SearchDirectUseCase.Params(query = Mockito.anyString(), limit = Mockito.anyInt())
+        val geoCoding = GeoCodingTestModel.createList()
+
+        `when`(geoCodingRepository.searchDirect(query = params.query, limit = params.limit)).thenReturn(
+            Single.just(geoCoding))
+        val test = searchDirectUseCase.createObservable(params).test()
+        test.assertValue(geoCoding)
     }
 
 }
