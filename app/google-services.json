@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "219101259919",
-    "project_id": "clean-architecture-3e16c",
-    "storage_bucket": "clean-architecture-3e16c.appspot.com"
+    "project_number": "948535275310",
+    "project_id": "geocoding-3c44f",
+    "storage_bucket": "geocoding-3c44f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:219101259919:android:a3f89daff536212df628fa",
+        "mobilesdk_app_id": "1:948535275310:android:dbbfa3dc6a31b24b5dd4bf",
         "android_client_info": {
-          "package_name": "project.penadidik.cleanarchitecture"
+          "package_name": "project.penadidik.geocoding"
         }
       },
       "oauth_client": [
         {
-          "client_id": "219101259919-1c8nthmubi39oiulv7boe1tmdip5gpd6.apps.googleusercontent.com",
+          "client_id": "948535275310-cuk0rn2q3958df5rfcts1u8iuir5ph1u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBN1Yj-kOZXKmymFuM7ThiPeskCTTw7UDE"
+          "current_key": "AIzaSyAwqnDc4qnuVzwGxYLJxVHZRXx_6f3-hvg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "219101259919-1c8nthmubi39oiulv7boe1tmdip5gpd6.apps.googleusercontent.com",
+              "client_id": "948535275310-cuk0rn2q3958df5rfcts1u8iuir5ph1u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

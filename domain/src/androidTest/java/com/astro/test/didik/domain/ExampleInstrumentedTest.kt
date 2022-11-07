@@ -1,4 +1,4 @@
-package project.penadidik.cleanarchitecture.domain
+package project.penadidik.geocoding.domain
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("project.penadidik.cleanarchitecture.domain", appContext.packageName)
+        assertEquals("project.penadidik.geocoding.domain", appContext.packageName)
     }
 }

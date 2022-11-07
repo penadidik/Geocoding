@@ -114,10 +114,10 @@ dependencies {
 
     // module
     implementation(project(Modules.domain)) {
-        exclude(group = "project.penadidik.cleanarchitecture", module = "domain")
+        exclude(group = "project.penadidik.geocoding", module = "domain")
     }
     implementation(project(Modules.data)) {
-        exclude(group = "project.penadidik.cleanarchitecture", module = "data")
+        exclude(group = "project.penadidik.geocoding", module = "data")
     }
 
     // Navigation

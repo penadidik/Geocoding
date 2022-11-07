@@ -5,7 +5,7 @@
     <data>
         <variable
             name="user"
-            type="project.penadidik.cleanarchitecture.model.FavoriteModel"/>
+            type="project.penadidik.geocoding.model.FavoriteModel"/>
 
     </data>
 

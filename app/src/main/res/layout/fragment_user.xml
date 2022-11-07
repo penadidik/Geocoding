@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="project.penadidik.cleanarchitecture.ui.user.UserViewModel" />
+            type="project.penadidik.geocoding.ui.user.UserViewModel" />
 
     </data>
 
