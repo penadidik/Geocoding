@@ -4,10 +4,10 @@ import project.penadidik.geocoding.domain.model.*
 
 object GeoCodingTestModel {
 
-    fun createList(): ArrayList<DirectGeoCoding> {
-        val list = ArrayList<DirectGeoCoding>()
+    fun createList(): ArrayList<Direct> {
+        val list = ArrayList<Direct>()
 
-        list.add(DirectGeoCoding(
+        list.add(Direct(
             name = "Australia",
             lat = -31.95260295,
             lon = 152.55512735272188,
@@ -15,7 +15,7 @@ object GeoCodingTestModel {
             state = "New South Wales"
         ))
 
-        list.add(DirectGeoCoding(
+        list.add(Direct(
             name = "Australia",
             lat = -12.7892966,
             lon = -66.5223197,
@@ -23,7 +23,7 @@ object GeoCodingTestModel {
             state = "Beni"
         ))
 
-        list.add(DirectGeoCoding(
+        list.add(Direct(
             name = "Australia",
             lat = 22.500905,
             lon = -81.1356126,
@@ -35,7 +35,7 @@ object GeoCodingTestModel {
 
     }
 
-    fun createDetail(): OpenDetail {
+    fun createDetail(): List<Detail> {
         val main = Main(
             temp = 302.66,
             feels_like = 304.56,
@@ -66,8 +66,8 @@ object GeoCodingTestModel {
             gust = 7.65
         )
 
-        val detailGeoCodingList = ArrayList<DetailGeoCoding>()
-        val detailGeoCoding = DetailGeoCoding(
+        val detailList = ArrayList<Detail>()
+        val detail = Detail(
             dt = 1667746800,
             main = main,
             weather = weatherList,
@@ -78,14 +78,8 @@ object GeoCodingTestModel {
             dt_txt = "2022-11-06 15:00:00"
         )
 
-        detailGeoCodingList.add(detailGeoCoding)
-
-        return OpenDetail(
-            cod = "200",
-            message = 0,
-            cnt = 40,
-            list = detailGeoCodingList
-        )
+        detailList.add(detail)
+        return detailList
     }
 
 }
