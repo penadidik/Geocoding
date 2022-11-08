@@ -10,7 +10,7 @@ I have written about how to architect android application using the Uncle Bob's 
 In General this application can run in online
 - Load weather data from Geo Coding depend on query searching
 - Click each data to see detail with weather information every 3 hours
-- We can set favorite user with click love icon and it will be save to local (room) --> soon
+- We can set favorite weather with click love icon and it will be save to local (room) --> soon
 - When we will see list favorite, just click Floating Button with download icon --> soon
 - We can remove favorite by click trash icon --> soon
 
@@ -30,8 +30,8 @@ We can easily running UI & Unit Test to coverage lines of code (LOC):
 - Exception
 - Annotation
 - Repository Interface
-- Use Case for User and Favorite
-- Unit Testing for User UseCase
+- Use Case for Search, Detail and Favorite
+- Unit Testing for Search, Detail UseCase
 
 #### Data Layer
 - Base Entity and Mapper
