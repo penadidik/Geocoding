@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import project.penadidik.geocoding.data.remote.api.GeoCodingApi
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -23,4 +24,8 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideUsersApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideGeoCodingApi(retrofit: Retrofit): GeoCodingApi = retrofit.create(GeoCodingApi::class.java)
 }

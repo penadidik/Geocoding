@@ -1,6 +1,6 @@
 package project.penadidik.geocoding.domain.model
 
-data class DetailGeoCoding (
+data class Detail (
     val dt: Int,
     val main: Main? = null,
     val weather: List<Weather>? = arrayListOf(),

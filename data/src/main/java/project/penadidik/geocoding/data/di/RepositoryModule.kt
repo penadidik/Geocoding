@@ -14,6 +14,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import project.penadidik.geocoding.data.repository.GeoCodingRepositoryImpl
+import project.penadidik.geocoding.domain.repository.GeoCodingRepository
 import javax.inject.Singleton
 
 @Module
@@ -47,6 +49,12 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun providerUserRepository(repository: UserRepositoryImpl): UserRepository {
+        return repository
+    }
+
+    @Provides
+    @Singleton
+    fun providerGeoCodingRepository(repository: GeoCodingRepositoryImpl): GeoCodingRepository {
         return repository
     }
 }

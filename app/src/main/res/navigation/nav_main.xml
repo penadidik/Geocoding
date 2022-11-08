@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/userFragment">
+    app:startDestination="@id/searchFragment">
 
     <fragment
-        android:id="@+id/userFragment"
-        android:name="project.penadidik.geocoding.ui.user.UserFragment"
+        android:id="@+id/searchFragment"
+        android:name="project.penadidik.geocoding.ui.search.SearchFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_user">
+        tools:layout="@layout/fragment_search">
 
         <action
             android:id="@+id/action_userFragment_to_favoriteFragment"

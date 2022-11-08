@@ -1,47 +1,44 @@
-package project.penadidik.geocoding.ui.user
+package project.penadidik.geocoding.ui.search
 
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
+import project.penadidik.geocoding.BR
 import project.penadidik.geocoding.R
 import project.penadidik.geocoding.base.BaseFragment
 import project.penadidik.geocoding.binding.FragmentDataBindingComponent
+import project.penadidik.geocoding.databinding.FragmentSearchBinding
 import project.penadidik.geocoding.util.autoCleared
-import dagger.hilt.android.AndroidEntryPoint
-import project.penadidik.geocoding.databinding.FragmentUserBinding
 
 @AndroidEntryPoint
-class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
-
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     override val bindingVariable: Int
-        get() = project.penadidik.geocoding.BR.viewModel
-
+        get() = BR.viewModel
+    override val viewModel: SearchViewModel by viewModels()
     override val layoutId: Int
-        get() = R.layout.fragment_user
+        get() = R.layout.fragment_search
 
-    override val viewModel: UserViewModel by viewModels()
-    private var userAdapter by autoCleared<UserAdapter>()
+    private var searchAdapter by autoCleared<SearchAdapter>()
     private var bindingComponent = FragmentDataBindingComponent(this)
     private var mLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         subscribeUI()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = UserAdapter(bindingComponent, viewModel)
-        this.userAdapter = adapter
+        val adapter = SearchAdapter(bindingComponent, viewModel)
+        this.searchAdapter = adapter
 
         with(viewDataBinding) {
-            listUser.adapter = userAdapter
+            listUser.adapter = searchAdapter
             listUser.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
 
@@ -52,7 +49,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
 
         // swipe refresh
         viewDataBinding.swipe.setOnRefreshListener {
-            viewModel.searchUser(false)
+            viewModel.searching(false)
         }
 
         // pagination, but limited when more than 3 page
@@ -70,7 +67,7 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
                     && viewModel.isLastPage.value == false) {
                     viewModel.isPaginating.value = true
                     Handler().postDelayed({
-                        viewModel.searchUser(viewModel.isPaginating.value!!)
+                        viewModel.searching(viewModel.isPaginating.value!!)
                     }, 300)
 
                 }
@@ -81,15 +78,11 @@ class UserFragment : BaseFragment<FragmentUserBinding, UserViewModel>() {
 //            findNavController().navigate(UserFragmentDirections.actionUserFragmentToFavoriteFragment())
         }
 
-        viewDataBinding.sort.setOnCheckedChangeListener { _, id ->
-            viewModel.sort(id == R.id.ascending)
-        }
-
     }
 
     private fun subscribeUI() = with(viewModel) {
         data.observe(viewLifecycleOwner) {
-            userAdapter.submitList(it)
+            searchAdapter.submitList(it)
         }
 
         loading.observe(viewLifecycleOwner) { loading ->
