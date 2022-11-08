@@ -1,6 +1,5 @@
 package project.penadidik.geocoding.data
 
-import project.penadidik.geocoding.data.model.UserEntity
 import project.penadidik.geocoding.domain.model.User
 
 fun createUserEntity(): UserEntity = UserEntity(id = 1,

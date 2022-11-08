@@ -12,15 +12,16 @@ import project.penadidik.geocoding.databinding.ItemSearchBinding
 
 class SearchAdapter(
     private val dataBindingComponent: DataBindingComponent,
-    private val viewModel: SearchViewModel
+    private val viewModel: SearchViewModel,
+    private val listener: SearchListener
 ) : BaseRecyclerAdapter<SearchModel>(
     callBack = object : DiffUtil.ItemCallback<SearchModel>() {
         override fun areItemsTheSame(oldItem: SearchModel, newItem: SearchModel): Boolean {
-            return oldItem.lat == oldItem.lat && oldItem.state == newItem.state
+            return oldItem.lat == newItem.lat && oldItem.state == newItem.state
         }
 
         override fun areContentsTheSame(oldItem: SearchModel, newItem: SearchModel): Boolean {
-            return oldItem.lat == oldItem.lat && oldItem.state == newItem.state
+            return oldItem.lat == newItem.lat && oldItem.state == newItem.state
         }
 
     }
@@ -34,6 +35,7 @@ class SearchAdapter(
     override fun bind(binding: ViewDataBinding, item: SearchModel) {
         if (binding is ItemSearchBinding) {
             binding.model = item
+            binding.listener = listener
 
             binding.favorite.setOnClickListener {
                 viewModel.setFavorite(item)

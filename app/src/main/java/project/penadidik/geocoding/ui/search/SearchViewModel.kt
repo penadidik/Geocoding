@@ -28,6 +28,7 @@ class SearchViewModel @Inject constructor(
     private val isDataEmpty = MutableLiveData<Boolean>().apply { postValue(false) }
     private val collectData = ArrayList<SearchModel>()
     private val limit = MutableLiveData<Int>().apply { postValue(5) }
+    val openDetail = MutableLiveData<SearchModel>()
 
     fun searching(paginate: Boolean = false) {
         when (query.value?.isNotEmpty()) {
@@ -61,7 +62,7 @@ class SearchViewModel @Inject constructor(
                         isRequesting.value = false
                         isPaginating.value = false
                     }, {
-                        Timber.e("Get user error: $it")
+                        Timber.e("Get search error: $it")
                         setThrowable(it)
                     })
                     .add(this)

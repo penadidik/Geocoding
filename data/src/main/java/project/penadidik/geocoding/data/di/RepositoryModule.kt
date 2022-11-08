@@ -6,7 +6,6 @@ import project.penadidik.geocoding.data.Constants
 import project.penadidik.geocoding.data.local.db.AppDatabase
 import project.penadidik.geocoding.data.local.pref.AppPrefs
 import project.penadidik.geocoding.data.local.pref.PrefHelper
-import project.penadidik.geocoding.data.repository.UserRepositoryImpl
 import project.penadidik.geocoding.domain.repository.UserRepository
 import com.google.gson.Gson
 import dagger.Module
@@ -44,12 +43,6 @@ class RepositoryModule {
     @Singleton
     fun providerAppPrefs(@ApplicationContext context: Context): AppPrefs {
         return AppPrefs(context, Gson())
-    }
-
-    @Provides
-    @Singleton
-    fun providerUserRepository(repository: UserRepositoryImpl): UserRepository {
-        return repository
     }
 
     @Provides

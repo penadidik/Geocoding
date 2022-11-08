@@ -1,10 +1,14 @@
 package project.penadidik.geocoding.ui.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.Navigator
+import androidx.navigation.NavigatorProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,10 +17,11 @@ import project.penadidik.geocoding.R
 import project.penadidik.geocoding.base.BaseFragment
 import project.penadidik.geocoding.binding.FragmentDataBindingComponent
 import project.penadidik.geocoding.databinding.FragmentSearchBinding
+import project.penadidik.geocoding.util.Helper
 import project.penadidik.geocoding.util.autoCleared
 
 @AndroidEntryPoint
-class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(), SearchListener {
     override val bindingVariable: Int
         get() = BR.viewModel
     override val viewModel: SearchViewModel by viewModels()
@@ -34,12 +39,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = SearchAdapter(bindingComponent, viewModel)
+        val adapter = SearchAdapter(bindingComponent, viewModel, this)
         this.searchAdapter = adapter
 
         with(viewDataBinding) {
-            listUser.adapter = searchAdapter
-            listUser.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            listSearch.adapter = searchAdapter
+            listSearch.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
 
         initListener()
@@ -53,7 +58,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
         }
 
         // pagination, but limited when more than 3 page
-        viewDataBinding.listUser.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        viewDataBinding.listSearch.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -91,9 +96,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
         mUpdateRecycler.observe(viewLifecycleOwner) {
             if(it == null){
-                viewDataBinding.listUser.adapter?.notifyDataSetChanged()
+                viewDataBinding.listSearch.adapter?.notifyDataSetChanged()
             }else{
-                viewDataBinding.listUser.adapter?.notifyItemChanged(it)
+                viewDataBinding.listSearch.adapter?.notifyItemChanged(it)
             }
         }
 
@@ -101,5 +106,19 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
             viewDataBinding.swipe.isRefreshing = it
         }
 
+        openDetail.observe(viewLifecycleOwner) {
+
+        }
+
+    }
+
+    override fun onClickDetail(model: SearchModel) {
+        val bundle = Bundle()
+        bundle.putDouble(Helper.KEY_LAT, model.lat)
+        bundle.putDouble(Helper.KEY_LON, model.lon)
+        bundle.putString(Helper.KEY_STATE, model.state)
+        bundle.putString(Helper.KEY_COUNTRY, model.country)
+
+        findNavController().navigate(R.id.detailFragment, bundle)
     }
 }

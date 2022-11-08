@@ -25,7 +25,9 @@ class GeoCodingRepositoryImpl @Inject constructor(
     }
 
     override fun getDetail(lat: Double, lon: Double): Single<List<Detail>> {
-        TODO("Not yet implemented")
+        return geoCodingApi.getDetail(lat, lon)
+            .map { it.list }
+            .doOnError { Throwable("Not found!") }
     }
 
     override fun setFavorite(lat: Double, long: Double): Single<Boolean> {

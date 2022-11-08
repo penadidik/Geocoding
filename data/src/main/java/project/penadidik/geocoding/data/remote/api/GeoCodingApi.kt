@@ -20,7 +20,8 @@ interface GeoCodingApi {
     fun getDetail(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,
-        @Query("appid") appid: String = Constants.Authentication.APPID
+        @Query("appid") appid: String = Constants.Authentication.APPID,
+        @Query("units") units: String = Constants.Authentication.UNITS
     ): Single<BaseDetailResponse>
 
 }

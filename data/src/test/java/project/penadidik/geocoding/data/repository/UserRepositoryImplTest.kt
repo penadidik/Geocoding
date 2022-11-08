@@ -1,10 +1,6 @@
 package project.penadidik.geocoding.data.repository
 
 import project.penadidik.geocoding.data.local.db.AppDatabase
-import project.penadidik.geocoding.data.model.UserEntity
-import project.penadidik.geocoding.data.model.mapper.UserEntityMapper
-import project.penadidik.geocoding.data.model.mapper.UserFavoriteEntityMapper
-import project.penadidik.geocoding.data.remote.api.UserApi
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import org.junit.Before

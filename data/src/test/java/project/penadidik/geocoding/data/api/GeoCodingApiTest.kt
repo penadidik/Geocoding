@@ -11,7 +11,6 @@ import org.junit.runners.JUnit4
 import project.penadidik.geocoding.data.Constants
 import project.penadidik.geocoding.data.model.DirectEntity
 import project.penadidik.geocoding.data.remote.api.GeoCodingApi
-import project.penadidik.geocoding.data.remote.api.UserApi
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

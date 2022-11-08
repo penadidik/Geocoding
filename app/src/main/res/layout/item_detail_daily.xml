@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="project.penadidik.geocoding.ui.detail.DetailModel"/>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:minHeight="160dp"
+                android:background="@color/white"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                style="@style/AppTheme.ItemSelectable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/dp_32"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{model.dt_txt}"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:textSize="@dimen/sp_16"
+                    android:textAppearance="?android:attr/textAppearanceListItem"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2022-11-08 18:00:00"/>
+
+                <TextView
+                    android:id="@+id/temperature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{`Temperature: ` + model.temp_in_main + ` Celsius`}"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date"
+                    tools:text="Temperature: 23.33 Celsius"/>
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{`Humidity: ` + model.humidity_in_main + `%`}"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/temperature"
+                    tools:text="Humidity: 90%"/>
+
+                <TextView
+                    android:id="@+id/weather"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{`Weather: ` + model.description_in_weather}"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/humidity"
+                    tools:text="Weather: light rain"/>
+
+                <TextView
+                    android:id="@+id/windSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{`Wind speed: ` + model.speed_in_wind + `(meter/second)`}"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weather"
+                    tools:text="Wind speed: 0.83 (meter/second)"/>
+
+                <TextView
+                    android:id="@+id/windDeg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{`Wind deg: ` + model.deg_in_wind + `(degrees)`}"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/windSpeed"
+                    tools:text="Wind deg: 21 (degrees)"/>
+
+                <TextView
+                    android:id="@+id/windGust"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/dp_8"
+                    android:paddingEnd="@dimen/dp_8"
+                    android:text="@{`Wind gust: ` + model.gust_in_wind + `(meter/second)`}"
+                    android:textSize="@dimen/sp_14"
+                    android:maxLines="2"
+                    android:textColor="@color/gray"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/windDeg"
+                    tools:text="Wind gust: 1.18 (meter/second)"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

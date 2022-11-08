@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".ui.detail.DetailFragment">
 
     <data>
 
@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="project.penadidik.geocoding.ui.search.SearchViewModel" />
+            type="project.penadidik.geocoding.ui.detail.DetailViewModel" />
 
     </data>
 
@@ -19,39 +19,70 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/textView"
+        <TextView
+            android:id="@+id/state"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="@string/search_hint"
             android:inputType=""
-            android:text="@={viewModel.query}"
-            app:layout_constraintEnd_toStartOf="@+id/search"
+            android:text="@{`State: ` + viewModel.state.toString()}"
+            android:textStyle="bold"
+            tools:text="State: Bali"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/search_btn_title"
-            app:singleClick="@{() -> viewModel.searching(viewModel.isPaginating)}"
-            app:hiddenKeyboard="@{true}"
+            android:hint="@string/search_hint"
+            android:inputType=""
+            android:text="@{`Country: ` + viewModel.country.toString()}"
+            android:textStyle="bold"
+            tools:text="Country: Indonesia"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/state" />
+
+        <TextView
+            android:id="@+id/lat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_hint"
+            android:inputType=""
+            android:text="@{`Lat: ` + viewModel.lat.toString()}"
+            android:textStyle="bold"
+            tools:text="Lat: -8.456018100000001"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/country" />
+
+        <TextView
+            android:id="@+id/lon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_hint"
+            android:inputType=""
+            android:text="@{`Lon: ` + viewModel.lon.toString()}"
+            android:textStyle="bold"
+            tools:text="Lon: 115.27038551191185"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lat" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/lon">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list_search"
+                android:id="@+id/list_daily"
                 android:layout_width="0dp"
                 android:layout_height="0dp" />
 
@@ -68,17 +99,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/swipe"
             app:layout_constraintTop_toTopOf="@+id/swipe" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="@dimen/dp_16"
-            android:layout_marginEnd="@dimen/dp_16"
-            app:layout_constraintBottom_toBottomOf="@+id/swipe"
-            app:layout_constraintEnd_toEndOf="@+id/swipe"
-            app:srcCompat="@drawable/ic_download_for_offline" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

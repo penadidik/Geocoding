@@ -7,11 +7,16 @@
             name="model"
             type="project.penadidik.geocoding.ui.search.SearchModel"/>
 
+        <variable
+            name="listener"
+            type="project.penadidik.geocoding.ui.search.SearchListener" />
+
     </data>
 
     <androidx.cardview.widget.CardView
         app:cardUseCompatPadding="true"
         android:layout_width="match_parent"
+        android:onClick="@{()->listener.onClickDetail(model)}"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -37,7 +42,7 @@
                     android:minHeight="@dimen/dp_32"
                     android:paddingStart="@dimen/dp_8"
                     android:paddingEnd="@dimen/dp_8"
-                    android:text="@{model.state + '(' + model.country + ')'}"
+                    android:text="@{model.state + ' ' + '(' + model.country + ')'}"
                     android:singleLine="true"
                     android:maxLines="1"
                     android:textSize="@dimen/sp_16"
@@ -54,7 +59,7 @@
                     android:gravity="center_vertical"
                     android:paddingStart="@dimen/dp_8"
                     android:paddingEnd="@dimen/dp_8"
-                    android:text="@{model.name + '|' + model.lat + '/' + model.lon}"
+                    android:text="@{model.name + ' ' + '|' + ' ' + model.lat + '/' + model.lon}"
                     android:textSize="@dimen/sp_14"
                     android:maxLines="2"
                     android:textColor="@color/gray"

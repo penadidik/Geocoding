@@ -14,5 +14,6 @@ object Constants {
     object Authentication {
         const val MAX_RETRY = 1
         const val APPID = "8576d8ae4739aa6e3d7129239755bbb5"
+        const val UNITS = "metric"
     }
 }

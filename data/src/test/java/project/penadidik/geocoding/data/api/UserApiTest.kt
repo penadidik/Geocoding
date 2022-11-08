@@ -1,8 +1,6 @@
 package project.penadidik.geocoding.data.api
 
 import project.penadidik.geocoding.data.ObserverTestUtils.getJson
-import project.penadidik.geocoding.data.remote.api.UserApi
-import project.penadidik.geocoding.data.remote.response.SearchUserResponse
 import io.reactivex.observers.TestObserver
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

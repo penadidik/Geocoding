@@ -1,7 +1,6 @@
 package project.penadidik.geocoding.data.local.db
 
 import project.penadidik.geocoding.data.createUserEntity
-import project.penadidik.geocoding.data.model.UserEntity
 import io.reactivex.observers.TestObserver
 import org.junit.Test
 import org.junit.runner.RunWith

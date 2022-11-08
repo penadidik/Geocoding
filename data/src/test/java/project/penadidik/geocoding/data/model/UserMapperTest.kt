@@ -2,7 +2,6 @@ package project.penadidik.geocoding.data.model
 
 import project.penadidik.geocoding.data.createUser
 import project.penadidik.geocoding.data.createUserEntity
-import project.penadidik.geocoding.data.model.mapper.UserEntityMapper
 import org.junit.Before
 import org.junit.Test
 
