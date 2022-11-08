@@ -1,12 +1,12 @@
 package project.penadidik.geocoding.data.local.db
 
-import project.penadidik.geocoding.data.createUserEntity
 import io.reactivex.observers.TestObserver
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers.anyInt
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
+import project.penadidik.geocoding.data.createUserEntity
 import java.util.concurrent.TimeUnit
 
 @RunWith(RobolectricTestRunner::class)

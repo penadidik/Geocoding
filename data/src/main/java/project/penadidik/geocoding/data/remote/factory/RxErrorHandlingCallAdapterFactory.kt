@@ -1,10 +1,10 @@
 package project.penadidik.geocoding.data.remote.factory
 
 import android.content.Context
-import project.penadidik.geocoding.data.remote.exception.RetrofitException
-import project.penadidik.geocoding.data.remote.mapper.RetrofitExceptionMapper
 import io.reactivex.*
 import io.reactivex.schedulers.Schedulers
+import project.penadidik.geocoding.data.remote.exception.RetrofitException
+import project.penadidik.geocoding.data.remote.mapper.RetrofitExceptionMapper
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.HttpException

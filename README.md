@@ -7,29 +7,22 @@ This is a basic code that uses Clean Architecture & Components.
 I have written about how to architect android application using the Uncle Bob's clean architecture approach.
 
 ### Mandatory Features
-In General this application can run in online or offline mode
-- Load user data from Github depend on query searching
-- First call search will be call api (mode online) or room (mode offline) and not yet sorting
-- After click `ASC` or `DESC` on radio button will be call api (mode online) or room (mode offline) and order by that
-- When scrolling and the position in 10th product, it will be request to open second page from api, but not yet for offline mode
-- When more than 3 page load, it will be show dialog popup, because it need login first
-- We can set favorite user with click love icon
-- When we will see list favorite, just click Floating Button with download icon
-- We can remove favorite by click trash icon
+In General this application can run in online
+- Load weather data from Geo Coding depend on query searching
+- Click each data to see detail with weather information every 3 hours
+- We can set favorite user with click love icon and it will be save to local (room) --> soon
+- When we will see list favorite, just click Floating Button with download icon --> soon
+- We can remove favorite by click trash icon --> soon
 
 
 ### UI & Unit Test
 We can easily running UI & Unit Test to coverage lines of code (LOC):
-- `FindUserUseCaseTest` for testing Use Case `FindUserUseCase`
-- `SearchUsersUseCaseTest` for testing Use Case `SearchUsersUseCase`
-- `SearchUsersFavoriteUseCaseTest` for testing Use Case `GetAllUserFavoriteUseCase`
-- `UserRepositoryImplTest` for testing Repository Implement `UserRepositoryImpl`
-- `UserMapperTest` for testing Mapper `UserMapper`
+- `GetDetailDirectUseCaseTest` for testing Use Case `GetDetailDirectUseCase`
+- `SearchDirectUseCaseTest` for testing Use Case `SearchDirectUseCase`
+- `DirectEntityMapperTest` for testing Mapper `DirectEntityMapper`
 - `DbTest` for testing Room Database `AppDatabase`
 - `UserDaoTest` for testing Dao `UserDao`
-- `UserApiTest` for testing Api Service `UserApi`
-- `UserViewModelTest` for testing ViewModel `UserViewModel`
-- `UserBaseMapperTest` for testing Model Mapper `UserModelMapper`
+- `GeoCodingApiTest` for testing Api Service `GeoCodingApi`
 - `CrashlyticsTreeTest` for testing Crashlytics
 
 #### Domain Layer

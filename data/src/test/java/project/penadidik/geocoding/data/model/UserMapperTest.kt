@@ -1,9 +1,9 @@
 package project.penadidik.geocoding.data.model
 
-import project.penadidik.geocoding.data.createUser
-import project.penadidik.geocoding.data.createUserEntity
 import org.junit.Before
 import org.junit.Test
+import project.penadidik.geocoding.data.createUser
+import project.penadidik.geocoding.data.createUserEntity
 
 class UserMapperTest {
     private lateinit var userEntityMapper: UserEntityMapper

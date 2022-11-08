@@ -1,14 +1,14 @@
 package project.penadidik.geocoding.data.remote.builder
 
 import android.content.Context
-import project.penadidik.geocoding.data.Constants
-import project.penadidik.geocoding.data.R
-import project.penadidik.geocoding.data.remote.factory.RxErrorHandlingCallAdapterFactory
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import project.penadidik.geocoding.data.Constants
+import project.penadidik.geocoding.data.R
+import project.penadidik.geocoding.data.remote.factory.RxErrorHandlingCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit

@@ -1,8 +1,8 @@
 package project.penadidik.geocoding.data.local.db.dao
 
 import androidx.room.*
-import project.penadidik.geocoding.data.model.UserFavoriteEntity
 import io.reactivex.Single
+import project.penadidik.geocoding.data.model.UserFavoriteEntity
 
 @Dao
 interface UserFavoriteDao {

@@ -2,17 +2,16 @@ package project.penadidik.geocoding.data.di
 
 import android.content.Context
 import androidx.room.Room
-import project.penadidik.geocoding.data.Constants
-import project.penadidik.geocoding.data.local.db.AppDatabase
-import project.penadidik.geocoding.data.local.pref.AppPrefs
-import project.penadidik.geocoding.data.local.pref.PrefHelper
-import project.penadidik.geocoding.domain.repository.UserRepository
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import project.penadidik.geocoding.data.Constants
+import project.penadidik.geocoding.data.local.db.AppDatabase
+import project.penadidik.geocoding.data.local.pref.AppPrefs
+import project.penadidik.geocoding.data.local.pref.PrefHelper
 import project.penadidik.geocoding.data.repository.GeoCodingRepositoryImpl
 import project.penadidik.geocoding.domain.repository.GeoCodingRepository
 import javax.inject.Singleton

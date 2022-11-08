@@ -1,6 +1,5 @@
 package project.penadidik.geocoding.data.api
 
-import project.penadidik.geocoding.data.ObserverTestUtils.getJson
 import io.reactivex.observers.TestObserver
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -10,6 +9,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import project.penadidik.geocoding.data.ObserverTestUtils.getJson
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

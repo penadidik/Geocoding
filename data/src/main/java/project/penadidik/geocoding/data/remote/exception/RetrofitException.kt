@@ -1,7 +1,7 @@
 package project.penadidik.geocoding.data.remote.exception
 
-import project.penadidik.geocoding.data.remote.response.ServerErrorResponse
 import okhttp3.ResponseBody
+import project.penadidik.geocoding.data.remote.response.ServerErrorResponse
 import retrofit2.Converter
 import retrofit2.Response
 import retrofit2.Retrofit

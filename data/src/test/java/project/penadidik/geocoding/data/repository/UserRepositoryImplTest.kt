@@ -1,11 +1,11 @@
 package project.penadidik.geocoding.data.repository
 
-import project.penadidik.geocoding.data.local.db.AppDatabase
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.*
+import project.penadidik.geocoding.data.local.db.AppDatabase
 
 class UserRepositoryImplTest {
     private lateinit var userRepositoryImpl: UserRepositoryImpl

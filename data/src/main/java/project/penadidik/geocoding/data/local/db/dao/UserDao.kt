@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import project.penadidik.geocoding.data.model.UserEntity
 import io.reactivex.Single
+import project.penadidik.geocoding.data.model.UserEntity
 
 @Dao
 interface UserDao {

@@ -1,7 +1,6 @@
 package project.penadidik.geocoding.data.remote.response
 
 import com.google.gson.annotations.SerializedName
-import project.penadidik.geocoding.data.model.DetailEntity
 import project.penadidik.geocoding.domain.model.Detail
 
 data class BaseDetailResponse (

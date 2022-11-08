@@ -1,8 +1,8 @@
 package project.penadidik.geocoding.data.model
 
 import androidx.room.Entity
-import project.penadidik.geocoding.data.base.ModelEntity
 import com.google.gson.annotations.SerializedName
+import project.penadidik.geocoding.data.base.ModelEntity
 
 @Entity(tableName = "user", primaryKeys = ["id"])
 data class UserEntity(
