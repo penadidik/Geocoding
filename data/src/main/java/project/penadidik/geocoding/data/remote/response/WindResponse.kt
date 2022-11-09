@@ -1,12 +1,10 @@
-package project.penadidik.geocoding.data.model
+package project.penadidik.geocoding.data.remote.response
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
-import project.penadidik.geocoding.data.base.ModelEntity
+import project.penadidik.geocoding.data.base.ModelResponse
 
-@Entity(tableName = "wind")
-data class WindEntity(
+data class WindResponse (
     @field: SerializedName("speed") val speed: Double,
     @field: SerializedName("deg") val deg: Int,
     @field: SerializedName("gust") val gust: Double
-): ModelEntity()
+): ModelResponse()

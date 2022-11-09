@@ -10,6 +10,6 @@ interface GeoCodingRepository: Repository {
 
     fun getDetail(lat: Double, lon: Double): Single<List<Detail>>
 
-    fun setFavorite(lat: Double, long: Double): Single<Boolean>
+    fun setFavorite(direct: Direct, detail: List<Detail>): Single<Boolean>
 
 }

@@ -3,7 +3,7 @@ package project.penadidik.geocoding.data.model
 import org.junit.Before
 import org.junit.Test
 import project.penadidik.geocoding.data.DirectTestModel
-import project.penadidik.geocoding.data.model.mapper.DirectEntityMapper
+import project.penadidik.geocoding.data.local.model.mapper.DirectEntityMapper
 
 class DirectEntityMapperTest {
 

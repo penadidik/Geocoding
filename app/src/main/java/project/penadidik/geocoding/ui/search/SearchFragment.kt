@@ -114,8 +114,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(), S
 
     override fun onClickDetail(model: SearchModel) {
         val bundle = Bundle()
-        bundle.putDouble(Helper.KEY_LAT, model.lat)
-        bundle.putDouble(Helper.KEY_LON, model.lon)
+        bundle.putDouble(Helper.KEY_LAT, model.lat!!)
+        bundle.putDouble(Helper.KEY_LON, model.lon!!)
         bundle.putString(Helper.KEY_STATE, model.state)
         bundle.putString(Helper.KEY_COUNTRY, model.country)
 

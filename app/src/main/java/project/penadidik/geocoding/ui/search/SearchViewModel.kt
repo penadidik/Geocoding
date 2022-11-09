@@ -4,9 +4,12 @@ import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import project.penadidik.geocoding.base.BaseViewModel
+import project.penadidik.geocoding.domain.model.Detail
 import project.penadidik.geocoding.domain.usecase.GetDetailDirectUseCase
 import project.penadidik.geocoding.domain.usecase.SearchDirectUseCase
+import project.penadidik.geocoding.domain.usecase.SetFavoriteDirectUseCase
 import project.penadidik.geocoding.extension.add
+import project.penadidik.geocoding.ui.detail.DetailModelMapper
 import project.penadidik.geocoding.util.RxUtils
 import timber.log.Timber
 import javax.inject.Inject
@@ -15,7 +18,9 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val searchDirectUseCase: SearchDirectUseCase,
     private val getDetailDirectUseCase: GetDetailDirectUseCase,
-    private val mapper: SearchModelMapper
+    private val setFavoriteDirectUseCase: SetFavoriteDirectUseCase,
+    private val mapper: SearchModelMapper,
+    private val mapperDetail: DetailModelMapper
 ) : BaseViewModel() {
 
     val data = MutableLiveData<List<SearchModel>>()
@@ -76,7 +81,56 @@ class SearchViewModel @Inject constructor(
     }
 
     fun setFavorite(model: SearchModel) {
+        Timber.tag("SearchViewModel").d("[setFavorite] trigger")
+        getDetailDirectUseCase.createObservable(GetDetailDirectUseCase.Params(lat = model.lat!!, lon = model.lon!!))
+            .compose(RxUtils.applySingleScheduler(loading))
+            .doFinally { loading.value = false }
+            .map { it.map { mapperDetail.mapToPresentation(it) } }
+            .subscribe({dataList ->
+                val detailList = ArrayList<Detail>()
+                dataList.forEach {
+                    it.lat = model.lat
+                    it.lon = model.lon
 
+                    detailList.add(mapperDetail.mapToDomain(it))
+                }
+                Timber.tag("SearchViewModel").d("[setFavorite] success get detail")
+
+                saveLocal(model, detailList)
+            }, {
+                Timber.e("Get detail error: $it")
+                setThrowable(it)
+            })
+            .add(this)
+    }
+
+    private fun saveLocal(model: SearchModel, detailList: List<Detail>) {
+        Timber.tag("SearchViewModel").d("[saveLocal] trigger")
+        setFavoriteDirectUseCase.createObservable(
+            SetFavoriteDirectUseCase.Params(
+                direct = mapper.mapToDomain(
+                    model
+                ),
+                details = detailList
+            )
+        )
+            .compose(RxUtils.applySingleScheduler(loading))
+            .doFinally { loading.value = false }
+            .subscribe({
+                val throwable = Throwable()
+                if (it) {
+                    Throwable("Success save as Favorite!")
+                    Timber.tag("SearchViewModel").d("[saveLocal] Success save as Favorite!")
+                }else {
+                    Throwable("Failure save as Favorite!")
+                    Timber.tag("SearchViewModel").d("[saveLocal] Failure save as Favorite!")
+                }
+                setThrowable(throwable)
+            }, {
+                Timber.e("Get detail error: $it")
+                setThrowable(it)
+            })
+            .add(this)
     }
 
     @VisibleForTesting

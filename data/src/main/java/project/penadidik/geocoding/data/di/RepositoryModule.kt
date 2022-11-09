@@ -20,16 +20,18 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
     @Provides
-    @project.penadidik.geocoding.data.di.DatabaseInfo
+    @DatabaseInfo
     fun providerDatabaseName(): String {
         return Constants.DATABASE_NAME
     }
 
     @Provides
     @Singleton
-    fun provideAppDatabase(@project.penadidik.geocoding.data.di.DatabaseInfo dbName: String, @ApplicationContext context: Context): AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, dbName).fallbackToDestructiveMigration()
-            .allowMainThreadQueries().build()
+    fun provideAppDatabase(@DatabaseInfo dbName: String, @ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(context, AppDatabase::class.java, dbName)
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
     }
 
     @Provides

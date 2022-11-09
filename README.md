@@ -20,8 +20,6 @@ We can easily running UI & Unit Test to coverage lines of code (LOC):
 - `GetDetailDirectUseCaseTest` for testing Use Case `GetDetailDirectUseCase`
 - `SearchDirectUseCaseTest` for testing Use Case `SearchDirectUseCase`
 - `DirectEntityMapperTest` for testing Mapper `DirectEntityMapper`
-- `DbTest` for testing Room Database `AppDatabase`
-- `UserDaoTest` for testing Dao `UserDao`
 - `GeoCodingApiTest` for testing Api Service `GeoCodingApi`
 - `CrashlyticsTreeTest` for testing Crashlytics
 

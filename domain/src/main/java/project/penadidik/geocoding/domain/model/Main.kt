@@ -1,13 +1,13 @@
 package project.penadidik.geocoding.domain.model
 
-data class Main (
-    val temp: Double,
-    val feels_like: Double,
-    val temp_min: Double,
-    val temp_max: Double,
-    val pressure: Int,
-    val sea_level: Int,
-    val grnd_level: Int,
-    val humidity: Int,
-    val temp_kf: Double
-): Model()
+class Main : Model() {
+    var temp: Double? = null
+    var feels_like: Double? = null
+    var temp_min: Double? = null
+    var temp_max: Double? = null
+    var pressure: Int? = null
+    var sea_level: Int? = null
+    var grnd_level: Int? = null
+    var humidity: Int? = null
+    var temp_kf: Double? = null
+}

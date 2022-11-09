@@ -1,7 +1,7 @@
 package project.penadidik.geocoding.domain.model
 
-data class Wind (
-    val speed: Double,
-    val deg: Int,
-    val gust: Double
-): Model()
+class Wind: Model() {
+    var speed: Double? = null
+    var deg: Int? = null
+    var gust: Double? = null
+}

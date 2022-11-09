@@ -1,8 +1,8 @@
 package project.penadidik.geocoding.domain.model
 
-data class Weather (
-    val id: Int,
-    val main: String,
-    val description: String,
-    val icon: String
-): Model()
+class Weather: Model() {
+    var id: Int? = null
+    var main: String? = null
+    var description: String? = null
+    var icon: String? = null
+}

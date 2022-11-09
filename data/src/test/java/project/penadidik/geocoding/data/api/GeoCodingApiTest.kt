@@ -9,7 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import project.penadidik.geocoding.data.Constants
-import project.penadidik.geocoding.data.model.DirectEntity
+import project.penadidik.geocoding.data.local.model.DirectEntity
 import project.penadidik.geocoding.data.remote.api.GeoCodingApi
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

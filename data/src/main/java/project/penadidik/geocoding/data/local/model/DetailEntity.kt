@@ -1,10 +1,14 @@
-package project.penadidik.geocoding.ui.detail
+package project.penadidik.geocoding.data.local.model
 
-import project.penadidik.geocoding.base.BaseModel
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import project.penadidik.geocoding.data.base.ModelEntity
 
-class DetailModel: BaseModel() {
-    var id: Int? = null
-    var dt: Int? = null
+@Entity(tableName = "detail")
+class DetailEntity: ModelEntity() {
+    @PrimaryKey(autoGenerate = true) 
+    var id: Int = 0
+    var dt: Int? = 0
     var temp_in_main: String? = null
     var feels_like_in_main: Double? = null
     var temp_min_in_main: Double? = null

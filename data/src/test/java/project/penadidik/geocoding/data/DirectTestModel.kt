@@ -1,6 +1,6 @@
 package project.penadidik.geocoding.data
 
-import project.penadidik.geocoding.data.model.DirectEntity
+import project.penadidik.geocoding.data.local.model.DirectEntity
 import project.penadidik.geocoding.domain.model.Direct
 
 object DirectTestModel {

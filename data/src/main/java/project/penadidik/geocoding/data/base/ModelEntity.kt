@@ -1,3 +1,5 @@
 package project.penadidik.geocoding.data.base
 
-open class ModelEntity
+import java.io.Serializable
+
+open class ModelEntity: Serializable
